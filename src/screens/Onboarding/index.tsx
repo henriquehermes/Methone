@@ -13,11 +13,7 @@ import CustomButton from '../../components/Button';
 
 import Images from '../../../assets/images';
 
-interface Props {
-    navigation: void;
-}
-
-const Onboarding: React.FC<Props> = ({ navigation }) => {
+const Onboarding: React.FC = ({ navigation }: any) => {
     function goToQuestions() {
         return navigation.navigate('Questions');
     }

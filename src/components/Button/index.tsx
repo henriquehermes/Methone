@@ -3,7 +3,7 @@ import { Container, ButtonText } from './styles';
 
 interface Props {
     label: string;
-    onAction: any;
+    onAction?: any;
 }
 
 const Button: React.FC<Props> = ({ label, onAction }) => (
