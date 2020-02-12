@@ -1,14 +1,15 @@
-import React from "react";
-import { Container, ButtonText } from "./styles";
+import React from 'react';
+import { Container, ButtonText } from './styles';
 
 interface Props {
-	label: string,
+    label: string;
+    onAction: any;
 }
 
-const Button: React.FC<Props> = ({ label }) => (
-	<Container>
-		<ButtonText>{label}</ButtonText>
-	</Container>
+const Button: React.FC<Props> = ({ label, onAction }) => (
+    <Container>
+        <ButtonText onPress={() => onAction()}>{label}</ButtonText>
+    </Container>
 );
 
 export default Button;
