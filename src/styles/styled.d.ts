@@ -5,5 +5,6 @@ declare module 'styled-components' {
         ghostwhite: string;
         royalblue: string;
         white: string;
+        black: string;
     }
 }

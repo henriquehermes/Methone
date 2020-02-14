@@ -8,7 +8,9 @@ interface Props {
 
 const Button: React.FC<Props> = ({ label, onAction }) => (
     <Container>
-        <ButtonText onPress={() => onAction()}>{label}</ButtonText>
+        <ButtonText onPress={() => (onAction ? onAction() : null)}>
+            {label}
+        </ButtonText>
     </Container>
 );
 

@@ -4,12 +4,13 @@ import { RFValue } from '../../utils/FontResponsive';
 
 export const SafeArea = styled(SafeAreaView)`
     flex: 1;
+    background-color: ${props => props.theme.white};
 `;
 
 export const Container = styled.View`
     flex: 1;
     background-color: ${props => props.theme.white};
-    padding: 70px 16px 20px 16px;
+    padding: 30px 16px 20px 16px;
 `;
 
 export const Header = styled.View`

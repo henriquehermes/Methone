@@ -1,4 +1,5 @@
 import React from 'react';
+import { CommonActions } from '@react-navigation/native';
 
 import {
     Container,
@@ -8,14 +9,19 @@ import {
     Header,
     ImageBackground,
 } from './styles';
-import { ONBOARDING_STRINGS } from '../../language/en-US';
+import { ONBOARDING_STRINGS } from '../../language';
 import CustomButton from '../../components/Button';
 
 import Images from '../../../assets/images';
 
 const Onboarding: React.FC = ({ navigation }: any) => {
     function goToQuestions() {
-        return navigation.navigate('Questions');
+        return navigation.dispatch(
+            CommonActions.reset({
+                index: 0,
+                routes: [{ name: 'Questions' }],
+            }),
+        );
     }
 
     return (

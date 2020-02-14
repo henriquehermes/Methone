@@ -16,6 +16,8 @@ const fetchFonts = () => {
     });
 };
 
+console.disableYellowBox = true;
+
 const App = () => {
     const [isReady, setIsReady] = useState(false);
 
