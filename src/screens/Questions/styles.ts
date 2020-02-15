@@ -103,4 +103,5 @@ export const QuestionLevel = styled.Text`
     font-family: 'Montserrat-SemiBold';
     color: red;
     margin-bottom: 5px;
+    text-transform: capitalize;
 `;
