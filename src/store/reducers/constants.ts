@@ -1,0 +1,6 @@
+const DEFAULT = {
+    SET_LOADING: 'SET_LOADING',
+    SET_QUESTIONS: 'SET_QUESTIONS',
+};
+
+export default DEFAULT;

@@ -4,9 +4,11 @@ import * as Font from 'expo-font';
 import { registerRootComponent } from 'expo';
 import { AppLoading } from 'expo';
 import { ThemeProvider } from 'styled-components';
+import { Provider } from 'react-redux';
 
 import Routes from './routes';
 import theme from './styles/global';
+import store from './store';
 
 const fetchFonts = () => {
     return Font.loadAsync({
@@ -31,10 +33,12 @@ const App = () => {
     }
 
     return (
-        <ThemeProvider theme={theme}>
-            <StatusBar barStyle="dark-content" backgroundColor="#fff" />
-            <Routes />
-        </ThemeProvider>
+        <Provider store={store}>
+            <ThemeProvider theme={theme}>
+                <StatusBar barStyle="dark-content" backgroundColor="#fff" />
+                <Routes />
+            </ThemeProvider>
+        </Provider>
     );
 };
 

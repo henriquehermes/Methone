@@ -16,3 +16,7 @@ export const ButtonText = styled.Text`
     width: 100%;
     text-align: center;
 `;
+
+export const Loader = styled.ActivityIndicator.attrs(props => ({
+    color: props.theme.white,
+}))``;
