@@ -39,7 +39,7 @@ export const Dislike = styled.Image`
     ${defaultIcon};
 `;
 
-export const Questions = styled(FlatList).attrs({
+export const Questions = styled.FlatList.attrs({
     bounces: false,
 })``;
 

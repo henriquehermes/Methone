@@ -39,7 +39,7 @@ export const Description = styled.Text`
 export const QuestionNumber = styled.Text`
     font-size: ${RFValue(15)}px;
     font-family: 'Montserrat-Regular';
-    margin-top: 50px;
+    margin-top: 15px;
 `;
 
 export const Body = styled.View`
@@ -87,7 +87,7 @@ export const Dislike = styled.Image`
 `;
 
 export const Content = styled.View`
-    padding: 30px 15px;
+    padding: 20px 15px;
 `;
 
 export const StepLevel = styled.View`
@@ -96,4 +96,11 @@ export const StepLevel = styled.View`
     width: 100%;
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
+`;
+
+export const QuestionLevel = styled.Text`
+    font-size: ${RFValue(15)}px;
+    font-family: 'Montserrat-SemiBold';
+    color: red;
+    margin-bottom: 5px;
 `;

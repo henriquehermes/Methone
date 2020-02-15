@@ -17,6 +17,7 @@ import {
     Dislike,
     StepLevel,
     Content,
+    QuestionLevel
 } from './styles';
 import { QUESTIONS_STRINGS } from '../../language';
 import Images from '../../../assets/images';
@@ -37,19 +38,21 @@ const Questions: React.FC = ({ navigation }: any) => {
                 <Header>
                     <Title>Entertainement</Title>
                     <Description>Video Games</Description>
-                    <QuestionNumber>
-                        {QUESTIONS_STRINGS.description}1{QUESTIONS_STRINGS.of}10
-                    </QuestionNumber>
+
                 </Header>
                 <Body>
                     <Box>
                         <StepLevel />
                         <Content>
+                            <QuestionLevel>Hard</QuestionLevel>
                             <Question>
                                 Unturned originally started as a Roblox game.
                             </Question>
                         </Content>
                     </Box>
+                    <QuestionNumber>
+                        {QUESTIONS_STRINGS.description}1{QUESTIONS_STRINGS.of}10
+                    </QuestionNumber>
                 </Body>
                 <Footer>
                     <Button onPress={goToScore}>
