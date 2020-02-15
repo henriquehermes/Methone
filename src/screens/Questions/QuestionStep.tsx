@@ -20,6 +20,7 @@ import {
 } from './styles';
 import { QUESTIONS_STRINGS } from '../../language';
 import Images from '../../../assets/images';
+import {TYPE_ANSWER} from "../../utils/Constants"
 
 interface Data {
     category: string;
@@ -32,13 +33,11 @@ interface Data {
 
 interface Props {
     data: Data;
-    nextStep: (action: boolean) => void;
+    nextStep: (action: string) => void;
     position: number;
 }
 
 const QuestionStep: React.FC<Props> = ({ data, nextStep, position }) => {
-    console.log(data);
-
     return (
         <SafeArea>
             <Container>
@@ -65,10 +64,10 @@ const QuestionStep: React.FC<Props> = ({ data, nextStep, position }) => {
                     </QuestionNumber>
                 </Body>
                 <Footer>
-                    <Button onPress={() => nextStep(true)}>
+                    <Button onPress={() => nextStep(TYPE_ANSWER.correct)}>
                         <Like source={Images.likeIcon} />
                     </Button>
-                    <Button onPress={() => nextStep(false)}>
+                    <Button onPress={() => nextStep(TYPE_ANSWER.incorrect)}>
                         <Dislike source={Images.dislikeIcon} />
                     </Button>
                 </Footer>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { CommonActions } from '@react-navigation/native';
+import { useSelector, useDispatch } from 'react-redux';
 
 import {
     Container,
@@ -16,64 +17,38 @@ import {
 } from './styles';
 import { SCORE_STRINGS } from '../../language';
 import CustomButton from '../../components/Button';
+import {
+    playAgain
+} from '../../store/reducers/questions/actions';
 
 import Images from '../../../assets/images';
 
+interface Question {
+    question: string;
+    isCorrect: boolean;
+}
+
+interface Score {
+    scoreList: Array<Question>;
+    score: number;
+}
+
+interface RootState {
+    questions: Score;
+}
+
+const ScoreList = (state: RootState) => state.questions.scoreList;
+const ScoreQuetions = (state: RootState) => state.questions.score;
+
 const Score: React.FC = ({ navigation }: any) => {
-    const DATA = [
-        {
-            id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-            question: 'Unturned originally started as a Roblox game.',
-            isAnswerCorrect: false,
-        },
-        {
-            id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-            question: 'Second Item',
-            isAnswerCorrect: true,
-        },
-        {
-            id: '58694a0f-3da1-471f-bd96-145571e29d72',
-            question: 'Third Item',
-            isAnswerCorrect: false,
-        },
-        {
-            id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-            question: 'Unturned originally started as a Roblox game.',
-            isAnswerCorrect: true,
-        },
-        {
-            id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-            question: 'Second Item',
-            isAnswerCorrect: false,
-        },
-        {
-            id: '58694a0f-3da1-471f-bd96-145571e29d72',
-            question: 'Third Item',
-            isAnswerCorrect: false,
-        },
-        {
-            id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-            question: 'Unturned originally started as a Roblox game.',
-            isAnswerCorrect: false,
-        },
-        {
-            id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-            question: 'Second Item',
-            isAnswerCorrect: false,
-        },
-        {
-            id: '58694a0f-3da1-471f-bd96-145571e29d72',
-            question: 'Third Item',
-            isAnswerCorrect: false,
-        },
-        {
-            id: '58694a0f-3da1-471f-bd96-145571e29d72',
-            question: 'Third Item',
-            isAnswerCorrect: true,
-        },
-    ];
+    const dispatch = useDispatch();
+
+    const scoreList = useSelector(ScoreList);
+    const score = useSelector(ScoreQuetions);
 
     function goToQuestions() {
+        dispatch(playAgain())
+        
         return navigation.dispatch(
             CommonActions.reset({
                 index: 0,
@@ -87,15 +62,15 @@ const Score: React.FC = ({ navigation }: any) => {
             <Container>
                 <Header>
                     <Title>{SCORE_STRINGS.title}</Title>
-                    <Description>3/10</Description>
+                    <Description>{score}/10</Description>
                 </Header>
                 <Body>
                     <Questions
-                        data={DATA}
-                        keyExtractor={item => item.id}
-                        renderItem={({ item }) => (
-                            <Row>
-                                {item.isAnswerCorrect ? (
+                        data={scoreList}
+                        keyExtractor={item => item.question}
+                        renderItem={({ item, index }) => (
+                            <Row key={index}>
+                                {item.isCorrect ? (
                                     <Like source={Images.likeIcon} />
                                 ) : (
                                     <Dislike source={Images.dislikeIcon} />

@@ -1,12 +1,17 @@
 export const Steps = {
-    Question_1: 1,
-    Question_2: 2,
-    Question_3: 3,
-    Question_4: 4,
-    Question_5: 5,
-    Question_6: 6,
-    Question_7: 7,
-    Question_8: 8,
-    Question_9: 9,
-    Question_10: 10,
+    Question_1: 0,
+    Question_2: 1,
+    Question_3: 2,
+    Question_4: 3,
+    Question_5: 4,
+    Question_6: 5,
+    Question_7: 6,
+    Question_8: 7,
+    Question_9: 8,
+    Question_10: 9,
+};
+
+export const TYPE_ANSWER = {
+    correct: 'True',
+    incorrect: 'False',
 };

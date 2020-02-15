@@ -10,7 +10,16 @@ export const stepPosition = position => ({
     position,
 });
 
+export const setScoreList = scoreList => ({
+    type: DEFAULT.SET_SCORE_LIST,
+    scoreList,
+});
+
 export const setScore = score => ({
     type: DEFAULT.SET_SCORE,
     score,
+});
+
+export const playAgain = () => ({
+    type: DEFAULT.PLAY_AGAIN,
 });
