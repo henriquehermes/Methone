@@ -3,9 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { CommonActions } from '@react-navigation/native';
 
 import QuestionStep from './QuestionStep';
-import QuestionComponent from './QuestionComponent';
 
-import { Steps } from '../../utils/Constants';
 import {
     stepPosition,
     setScore,
@@ -46,7 +44,7 @@ const QuestionsController = ({ navigation }: any) => {
     function nextStep(action) {
         const step = list[currentStep];
         const isCorrect = step.correct_answer === action;
-        const numberScore = isCorrect ? score + 1 : score
+        const numberScore = isCorrect ? score + 1 : score;
 
         dispatch(
             setScoreList({
@@ -74,80 +72,13 @@ const QuestionsController = ({ navigation }: any) => {
         );
     }
 
-    const steps = {
-        [Steps.Question_1]: (
-            <QuestionStep
-                data={list[currentStep]}
-                nextStep={nextStep}
-                position={position}
-            />
-        ),
-        [Steps.Question_2]: (
-            <QuestionStep
-                data={list[currentStep]}
-                nextStep={nextStep}
-                position={position}
-            />
-        ),
-        [Steps.Question_3]: (
-            <QuestionStep
-                data={list[currentStep]}
-                nextStep={nextStep}
-                position={position}
-            />
-        ),
-        [Steps.Question_4]: (
-            <QuestionStep
-                data={list[currentStep]}
-                nextStep={nextStep}
-                position={position}
-            />
-        ),
-        [Steps.Question_5]: (
-            <QuestionStep
-                data={list[currentStep]}
-                nextStep={nextStep}
-                position={position}
-            />
-        ),
-        [Steps.Question_6]: (
-            <QuestionStep
-                data={list[currentStep]}
-                nextStep={nextStep}
-                position={position}
-            />
-        ),
-        [Steps.Question_7]: (
-            <QuestionStep
-                data={list[currentStep]}
-                nextStep={nextStep}
-                position={position}
-            />
-        ),
-        [Steps.Question_8]: (
-            <QuestionStep
-                data={list[currentStep]}
-                nextStep={nextStep}
-                position={position}
-            />
-        ),
-        [Steps.Question_9]: (
-            <QuestionStep
-                data={list[currentStep]}
-                nextStep={nextStep}
-                position={position}
-            />
-        ),
-        [Steps.Question_10]: (
-            <QuestionStep
-                data={list[currentStep]}
-                nextStep={nextStep}
-                position={position}
-            />
-        ),
-    };
-
-    return <QuestionComponent steps={steps} currentStep={currentStep} />;
+    return (
+        <QuestionStep
+            data={list[currentStep]}
+            nextStep={nextStep}
+            position={position}
+        />
+    );
 };
 
 export default QuestionsController;

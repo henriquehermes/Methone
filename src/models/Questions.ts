@@ -14,6 +14,7 @@ export default class QuestionModel {
 
 class DefaultModel {
     category: string;
+    subcategory: string;
     type: string;
     difficulty: string;
     question: string;
@@ -21,7 +22,11 @@ class DefaultModel {
     incorrect_answers: Array<StringConstructor>;
 
     constructor(item) {
-        this.category = delve(item, 'category', '');
+        const category = item.category.split(':')[0].trim();
+        const hasSubcategory = item.category.split(':')[1];
+
+        this.category = !category ? 'Category' : category;
+        this.subcategory = !hasSubcategory ? 'General' : hasSubcategory.trim();
         this.type = delve(item, 'type', '');
         this.difficulty = delve(item, 'difficulty', '');
         this.question = delve(item, 'question', '');

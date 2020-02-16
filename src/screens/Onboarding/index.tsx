@@ -37,6 +37,7 @@ const Onboarding: React.FC = ({ navigation }: any) => {
                 }),
             );
         } catch (e) {
+            console.log(e)
         } finally {
             dispatch(setIsLoading(false));
         }

@@ -20,10 +20,11 @@ import {
 } from './styles';
 import { QUESTIONS_STRINGS } from '../../language';
 import Images from '../../../assets/images';
-import {TYPE_ANSWER} from "../../utils/Constants"
+import { TYPE_ANSWER } from '../../utils/Constants';
 
 interface Data {
     category: string;
+    subcategory?: string;
     type: string;
     difficulty: string;
     question: string;
@@ -42,12 +43,8 @@ const QuestionStep: React.FC<Props> = ({ data, nextStep, position }) => {
         <SafeArea>
             <Container>
                 <Header>
-                    <Title>{data.category.split(':')[0]}</Title>
-                    {data.category.split(':')[1] && (
-                        <Description>
-                            {data.category.split(':')[1].trim()}
-                        </Description>
-                    )}
+                    <Title>{data.category}</Title>
+                    <Description>{data.subcategory}</Description>
                 </Header>
                 <Body>
                     <Box>
