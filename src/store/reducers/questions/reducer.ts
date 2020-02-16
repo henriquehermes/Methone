@@ -1,40 +1,47 @@
-import DEFAULT from '../types';
-import Score from '../../../screens/Score';
+import {
+    stateQuestions,
+    SET_QUESTIONS,
+    SET_SCORE,
+    SET_SCORE_LIST,
+    SET_STEP_POSITION,
+    PLAY_AGAIN,
+    QuestionsActionTypes,
+} from './types';
 
-export const INITIAL_STATE = {
+const INITIAL_STATE: stateQuestions = {
     list: [],
     position: 1,
     scoreList: [],
     score: 0,
 };
 
-export default (state = INITIAL_STATE, action) => {
+export default (state = INITIAL_STATE, action: QuestionsActionTypes) => {
     switch (action.type) {
-        case DEFAULT.SET_QUESTIONS: {
+        case SET_QUESTIONS: {
             return {
                 ...state,
                 list: action.questions,
             };
         }
-        case DEFAULT.SET_STEP_POSITION: {
+        case SET_STEP_POSITION: {
             return {
                 ...state,
                 position: action.position,
             };
         }
-        case DEFAULT.SET_SCORE_LIST: {
+        case SET_SCORE_LIST: {
             return {
                 ...state,
                 scoreList: state.scoreList.concat(action.scoreList),
             };
         }
-        case DEFAULT.SET_SCORE: {
+        case SET_SCORE: {
             return {
                 ...state,
                 score: action.score,
             };
         }
-        case DEFAULT.PLAY_AGAIN: {
+        case PLAY_AGAIN: {
             return {
                 ...state,
                 position: INITIAL_STATE.position,

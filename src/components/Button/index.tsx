@@ -16,10 +16,8 @@ interface RootState {
     general: General;
 }
 
-const selectIsLoading = (state: RootState) => state.general.isLoading;
-
 const Button: React.FC<Props> = ({ label, onAction }) => {
-    const isLoading = useSelector(selectIsLoading);
+    const isLoading = useSelector((state: RootState) => state.general.isLoading);
 
     return (
         <Container

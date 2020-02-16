@@ -1,12 +1,12 @@
-import DEFAULT from '../types';
+import { stateGeneral, GeneralActionTypes, SET_LOADING } from './types';
 
-export const INITIAL_STATE = {
+const INITIAL_STATE: stateGeneral = {
     isLoading: false,
 };
 
-export default (state = INITIAL_STATE, action) => {
+export default (state = INITIAL_STATE, action: GeneralActionTypes) => {
     switch (action.type) {
-        case DEFAULT.SET_LOADING: {
+        case SET_LOADING: {
             return {
                 ...state,
                 isLoading: action.isLoading,

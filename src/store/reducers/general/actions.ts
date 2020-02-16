@@ -1,6 +1,8 @@
-import DEFAULT from '../types';
+import { GeneralActionTypes, SET_LOADING } from './types';
 
-export const setIsLoading = isLoading => ({
-    type: DEFAULT.SET_LOADING,
-    isLoading,
-});
+export function setIsLoading(isLoading: boolean): GeneralActionTypes {
+    return {
+        type: SET_LOADING,
+        isLoading,
+    };
+}

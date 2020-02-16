@@ -1,25 +1,44 @@
-import DEFAULT from '../types';
+import {
+    SET_QUESTIONS,
+    SET_SCORE,
+    SET_SCORE_LIST,
+    SET_STEP_POSITION,
+    PLAY_AGAIN,
+    QuestionsActionTypes,
+    Question,
+    Score,
+} from './types';
 
-export const setQuestions = questions => ({
-    type: DEFAULT.SET_QUESTIONS,
-    questions,
-});
+export function setQuestions(questions: Question[]): QuestionsActionTypes {
+    return {
+        type: SET_QUESTIONS,
+        questions,
+    };
+}
 
-export const stepPosition = position => ({
-    type: DEFAULT.SET_STEP_POSITION,
-    position,
-});
+export function stepPosition(position: number): QuestionsActionTypes {
+    return {
+        type: SET_STEP_POSITION,
+        position,
+    };
+}
 
-export const setScoreList = scoreList => ({
-    type: DEFAULT.SET_SCORE_LIST,
-    scoreList,
-});
+export function setScoreList(scoreList: Score): QuestionsActionTypes {
+    return {
+        type: SET_SCORE_LIST,
+        scoreList,
+    };
+}
 
-export const setScore = score => ({
-    type: DEFAULT.SET_SCORE,
-    score,
-});
+export function setScore(score: number): QuestionsActionTypes {
+    return {
+        type: SET_SCORE,
+        score,
+    };
+}
 
-export const playAgain = () => ({
-    type: DEFAULT.PLAY_AGAIN,
-});
+export function playAgain(): QuestionsActionTypes {
+    return {
+        type: PLAY_AGAIN,
+    };
+}

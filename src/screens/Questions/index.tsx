@@ -19,7 +19,7 @@ interface Question {
     incorrect_answers: Array<string>;
 }
 interface Questions {
-    list: Array<Question>;
+    list: Question[];
     position: number;
     score: number;
 }
@@ -28,16 +28,14 @@ interface RootState {
     questions: Questions;
 }
 
-const ListQuestions = (state: RootState) => state.questions.list;
-const PositionQuestions = (state: RootState) => state.questions.position;
-const ScoreQuetions = (state: RootState) => state.questions.score;
-
-const QuestionsController = ({ navigation }: any) => {
+const QuestionsController: React.FC = ({ navigation }: any) => {
     const [currentStep, setCurrentStep] = useState(0);
 
-    const list = useSelector(ListQuestions);
-    const position = useSelector(PositionQuestions);
-    const score = useSelector(ScoreQuetions);
+    const list = useSelector((state: RootState) => state.questions.list);
+    const position = useSelector(
+        (state: RootState) => state.questions.position,
+    );
+    const score = useSelector((state: RootState) => state.questions.score);
 
     const dispatch = useDispatch();
 
@@ -46,12 +44,9 @@ const QuestionsController = ({ navigation }: any) => {
         const isCorrect = step.correct_answer === action;
         const numberScore = isCorrect ? score + 1 : score;
 
-        dispatch(
-            setScoreList({
-                question: step.question,
-                isCorrect,
-            }),
-        );
+        const scoreItem = { question: step.question, isCorrect };
+
+        dispatch(setScoreList(scoreItem));
 
         dispatch(setScore(numberScore));
 

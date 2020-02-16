@@ -17,9 +17,7 @@ import {
 } from './styles';
 import { SCORE_STRINGS } from '../../language';
 import CustomButton from '../../components/Button';
-import {
-    playAgain
-} from '../../store/reducers/questions/actions';
+import { playAgain } from '../../store/reducers/questions/actions';
 
 import Images from '../../../assets/images';
 
@@ -29,7 +27,7 @@ interface Question {
 }
 
 interface Score {
-    scoreList: Array<Question>;
+    scoreList: Question[];
     score: number;
 }
 
@@ -37,18 +35,17 @@ interface RootState {
     questions: Score;
 }
 
-const ScoreList = (state: RootState) => state.questions.scoreList;
-const ScoreQuetions = (state: RootState) => state.questions.score;
-
 const Score: React.FC = ({ navigation }: any) => {
     const dispatch = useDispatch();
 
-    const scoreList = useSelector(ScoreList);
-    const score = useSelector(ScoreQuetions);
+    const scoreList = useSelector(
+        (state: RootState) => state.questions.scoreList,
+    );
+    const score = useSelector((state: RootState) => state.questions.score);
 
     function goToQuestions() {
-        dispatch(playAgain())
-        
+        dispatch(playAgain());
+
         return navigation.dispatch(
             CommonActions.reset({
                 index: 0,
