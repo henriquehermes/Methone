@@ -64,15 +64,15 @@ const Score: React.FC = ({ navigation }: any) => {
                 <Body>
                     <Questions
                         data={scoreList}
-                        keyExtractor={item => item.question}
+                        keyExtractor={item => item?.question}
                         renderItem={({ item, index }) => (
                             <Row key={index}>
-                                {item.isCorrect ? (
+                                {item?.isCorrect ? (
                                     <Like source={Images.likeIcon} />
                                 ) : (
                                     <Dislike source={Images.dislikeIcon} />
                                 )}
-                                <Question>{item.question}</Question>
+                                <Question>{item?.question}</Question>
                             </Row>
                         )}
                     />

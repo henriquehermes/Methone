@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1582057158444" clover="3.2.0">
+  <project timestamp="1582057158445" name="All files">
+    <metrics statements="43" coveredstatements="41" conditionals="16" coveredconditionals="10" methods="13" coveredmethods="13" elements="72" coveredelements="64" complexity="0" loc="43" ncloc="43" packages="6" files="10" classes="10"/>
+    <package name="config">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="api.ts" path="/Users/henriquehermes/Documents/G2i-ReactNative/src/config/api.ts">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="models">
+      <metrics statements="12" coveredstatements="12" conditionals="6" coveredconditionals="3" methods="4" coveredmethods="4"/>
+      <file name="Questions.ts" path="/Users/henriquehermes/Documents/G2i-ReactNative/src/models/Questions.ts">
+        <metrics statements="12" coveredstatements="12" conditionals="6" coveredconditionals="3" methods="4" coveredmethods="4"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="21" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="36" count="1" type="stmt"/>
+        <line num="37" count="1" type="stmt"/>
+        <line num="39" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="40" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="41" count="1" type="stmt"/>
+        <line num="42" count="1" type="stmt"/>
+        <line num="43" count="1" type="stmt"/>
+        <line num="44" count="1" type="stmt"/>
+        <line num="45" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="services">
+      <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="Onboarding.ts" path="/Users/henriquehermes/Documents/G2i-ReactNative/src/services/Onboarding.ts">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="store.reducers.general">
+      <metrics statements="6" coveredstatements="5" conditionals="3" coveredconditionals="2" methods="2" coveredmethods="2"/>
+      <file name="actions.ts" path="/Users/henriquehermes/Documents/G2i-ReactNative/src/store/reducers/general/actions.ts">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="4" count="1" type="stmt"/>
+      </file>
+      <file name="reducer.ts" path="/Users/henriquehermes/Documents/G2i-ReactNative/src/store/reducers/general/reducer.ts">
+        <metrics statements="4" coveredstatements="3" conditionals="3" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="8" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+      </file>
+      <file name="types.ts" path="/Users/henriquehermes/Documents/G2i-ReactNative/src/store/reducers/general/types.ts">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="store.reducers.questions">
+      <metrics statements="18" coveredstatements="17" conditionals="7" coveredconditionals="5" methods="6" coveredmethods="6"/>
+      <file name="actions.ts" path="/Users/henriquehermes/Documents/G2i-ReactNative/src/store/reducers/questions/actions.ts">
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="5"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="34" count="1" type="stmt"/>
+        <line num="41" count="1" type="stmt"/>
+      </file>
+      <file name="reducer.ts" path="/Users/henriquehermes/Documents/G2i-ReactNative/src/store/reducers/questions/reducer.ts">
+        <metrics statements="8" coveredstatements="7" conditionals="7" coveredconditionals="5" methods="1" coveredmethods="1"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="19" count="5" type="cond" truecount="5" falsecount="1"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="33" count="1" type="stmt"/>
+        <line num="39" count="1" type="stmt"/>
+        <line num="45" count="1" type="stmt"/>
+        <line num="53" count="0" type="stmt"/>
+      </file>
+      <file name="types.ts" path="/Users/henriquehermes/Documents/G2i-ReactNative/src/store/reducers/questions/types.ts">
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="2" count="2" type="stmt"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="utils">
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="Constants.ts" path="/Users/henriquehermes/Documents/G2i-ReactNative/src/utils/Constants.ts">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>
