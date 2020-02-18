@@ -89,7 +89,6 @@ export const OverlayDescription = styled.Text`
 export const HideOverlay = styled(Animatable.View).attrs({
     animation: 'fadeOut',
     delay: 2000,
-    useNativeDriver: true,
 })`
     flex: 1;
     position: absolute;

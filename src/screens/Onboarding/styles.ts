@@ -33,8 +33,9 @@ export const ImageBackground = styled.Image`
     width: 100%;
     height: 300px;
     position: absolute;
-    bottom: 100px;
+    bottom: ${RFValue(45)};
     right: -50px;
+    z-index: -1;
 `;
 
 export const ModalBody = styled.View`
