@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components/native';
+import * as Animatable from 'react-native-animatable';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { RFValue } from '../../utils/FontResponsive';
 
@@ -57,4 +58,42 @@ export const Row = styled.View`
 export const Body = styled.View`
     flex: 1;
     padding: 15px 0px;
+`;
+
+export const OverlayContent = styled.View`
+    background-color: rgba(0, 0, 0, 0.85);
+    flex: 1;
+    height: 100%;
+    width: 100%;
+    justify-content: flex-end;
+    align-items: center;
+`;
+
+export const OverlayHeader = styled.View`
+    align-items: center;
+    text-align: center;
+`;
+
+export const OverlayTitle = styled.Text`
+    font-size: ${RFValue(25)}px;
+    font-family: 'Montserrat-Regular';
+    color: ${props => props.theme.ghostwhite};
+`;
+
+export const OverlayDescription = styled.Text`
+    font-size: ${RFValue(45)}px;
+    font-family: 'Montserrat-SemiBold';
+    color: ${props => props.theme.ghostwhite};
+`;
+
+export const HideOverlay = styled(Animatable.View).attrs({
+    animation: 'fadeOut',
+    delay: 2000,
+    useNativeDriver: true,
+})`
+    flex: 1;
+    position: absolute;
+    z-index: 999;
+    height: 100%;
+    width: 100%;
 `;

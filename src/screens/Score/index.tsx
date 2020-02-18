@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { CommonActions } from '@react-navigation/native';
 import { useSelector, useDispatch } from 'react-redux';
 
+import Overlay from './Overlay';
 import {
     Container,
     Title,
@@ -14,6 +15,7 @@ import {
     Dislike,
     Question,
     Body,
+    HideOverlay,
 } from './styles';
 import { SCORE_STRINGS } from '../../language';
 import CustomButton from '../../components/Button';
@@ -38,6 +40,8 @@ interface RootState {
 const Score: React.FC = ({ navigation }: any) => {
     const dispatch = useDispatch();
 
+    const [hide, setHide] = useState(false);
+
     const scoreList = useSelector(
         (state: RootState) => state.questions.scoreList,
     );
@@ -55,34 +59,41 @@ const Score: React.FC = ({ navigation }: any) => {
     }
 
     return (
-        <SafeArea>
-            <Container>
-                <Header>
-                    <Title>{SCORE_STRINGS.title}</Title>
-                    <Description>{score}/10</Description>
-                </Header>
-                <Body>
-                    <Questions
-                        data={scoreList}
-                        keyExtractor={item => item?.question}
-                        renderItem={({ item, index }) => (
-                            <Row key={index}>
-                                {item?.isCorrect ? (
-                                    <Like source={Images.likeIcon} />
-                                ) : (
-                                    <Dislike source={Images.dislikeIcon} />
-                                )}
-                                <Question>{item?.question}</Question>
-                            </Row>
-                        )}
+        <>
+            {!hide && (
+                <HideOverlay onAnimationEnd={() => setHide(true)}>
+                    <Overlay score={score} />
+                </HideOverlay>
+            )}
+            <SafeArea>
+                <Container>
+                    <Header>
+                        <Title>{SCORE_STRINGS.title}</Title>
+                        <Description>{score}/10</Description>
+                    </Header>
+                    <Body>
+                        <Questions
+                            data={scoreList}
+                            keyExtractor={item => item?.question}
+                            renderItem={({ item, index }) => (
+                                <Row key={index}>
+                                    {item?.isCorrect ? (
+                                        <Like source={Images.likeIcon} />
+                                    ) : (
+                                        <Dislike source={Images.dislikeIcon} />
+                                    )}
+                                    <Question>{item?.question}</Question>
+                                </Row>
+                            )}
+                        />
+                    </Body>
+                    <CustomButton
+                        onAction={goToQuestions}
+                        label={SCORE_STRINGS.buttonPrimary}
                     />
-                </Body>
-                <CustomButton
-                    onAction={goToQuestions}
-                    label={SCORE_STRINGS.buttonPrimary}
-                />
-            </Container>
-        </SafeArea>
+                </Container>
+            </SafeArea>
+        </>
     );
 };
 
