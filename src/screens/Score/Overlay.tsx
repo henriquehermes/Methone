@@ -21,7 +21,7 @@ const Overlay: React.FC<Props> = ({ score }) => {
                 <OverlayDescription>{score}/10</OverlayDescription>
             </OverlayHeader>
             <LottieView
-                speed={0.6}
+                speed={0.4}
                 autoPlay
                 style={{
                     width: 200,
