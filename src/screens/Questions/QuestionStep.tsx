@@ -43,15 +43,15 @@ const QuestionStep: React.FC<Props> = ({ data, nextStep, position }) => {
         <SafeArea>
             <Container>
                 <Header>
-                    <Title>{data.category}</Title>
-                    <Description>{data.subcategory}</Description>
+                    <Title>{data?.category}</Title>
+                    <Description>{data?.subcategory}</Description>
                 </Header>
                 <Body>
                     <Box>
                         <StepLevel />
                         <Content>
-                            <QuestionLevel>{data.difficulty}</QuestionLevel>
-                            <Question>{data.question}</Question>
+                            <QuestionLevel>{data?.difficulty}</QuestionLevel>
+                            <Question>{data?.question}</Question>
                         </Content>
                     </Box>
                     <QuestionNumber>

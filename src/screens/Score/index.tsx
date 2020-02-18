@@ -64,7 +64,7 @@ const Score: React.FC = ({ navigation }: any) => {
                 <Body>
                     <Questions
                         data={scoreList}
-                        keyExtractor={item => item.question}
+                        keyExtractor={item => item?.question}
                         renderItem={({ item, index }) => (
                             <Row key={index}>
                                 {item.isCorrect ? (

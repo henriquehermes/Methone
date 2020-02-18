@@ -1,14 +1,24 @@
 import delve from 'dlv';
 
+interface Question {
+    category: string;
+    type: string;
+    difficulty: string;
+    question: string;
+    correct_answer: string;
+    incorrect_answers: Array<string>;
+}
+
 export default class QuestionModel {
-    questions: Array<ObjectArray>;
-    constructor(dictionary) {
+    questions: Question[];
+
+    constructor(dictionary: { results: any }) {
         this.questions = this._parseQuestions(dictionary.results);
     }
 
-    _parseQuestions(dictionary) {
+    _parseQuestions(dictionary: any) {
         if (!dictionary) return [];
-        return dictionary.map(item => new DefaultModel(item));
+        return dictionary.map((item: Question) => new DefaultModel(item));
     }
 }
 
@@ -21,7 +31,7 @@ class DefaultModel {
     correct_answer: string;
     incorrect_answers: Array<StringConstructor>;
 
-    constructor(item) {
+    constructor(item: Question) {
         const category = item.category.split(':')[0].trim();
         const hasSubcategory = item.category.split(':')[1];
 
