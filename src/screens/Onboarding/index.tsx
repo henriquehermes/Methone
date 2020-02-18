@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { CommonActions } from '@react-navigation/native';
 import { useDispatch } from 'react-redux';
+import Modal from 'react-native-modal';
+
 import {
     Container,
     Title,
@@ -9,9 +11,10 @@ import {
     Description,
     Header,
     ImageBackground,
+    ModalBody,
 } from './styles';
 
-import { ONBOARDING_STRINGS } from '../../language';
+import { ONBOARDING_STRINGS, ERROR_EXCEPTION_STRINGS } from '../../language';
 import { setIsLoading } from '../../store/reducers/general/actions';
 import { setQuestions } from '../../store/reducers/questions/actions';
 
@@ -21,6 +24,8 @@ import getQuestions from '../../services/Onboarding';
 
 const Onboarding: React.FC = ({ navigation }: any) => {
     const dispatch = useDispatch();
+
+    const [error, setError] = useState(null);
 
     async function goToQuestions() {
         try {
@@ -37,10 +42,15 @@ const Onboarding: React.FC = ({ navigation }: any) => {
                 }),
             );
         } catch (e) {
-            console.log(e)
+            setError(true);
         } finally {
             dispatch(setIsLoading(false));
         }
+    }
+
+    function handleModal() {
+        setError(null);
+        goToQuestions();
     }
 
     return (
@@ -59,6 +69,18 @@ const Onboarding: React.FC = ({ navigation }: any) => {
                     onAction={goToQuestions}
                 />
             </Container>
+            <Modal isVisible={!!error}>
+                <ModalBody>
+                    <Title>{ERROR_EXCEPTION_STRINGS.title}</Title>
+                    <Description>
+                        {ERROR_EXCEPTION_STRINGS.description}
+                    </Description>
+                    <CustomButton
+                        label={ERROR_EXCEPTION_STRINGS.buttonPrimary}
+                        onAction={handleModal}
+                    />
+                </ModalBody>
+            </Modal>
         </SafeArea>
     );
 };

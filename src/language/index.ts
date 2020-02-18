@@ -18,3 +18,4 @@ switch (LANGUAGE) {
 export const ONBOARDING_STRINGS = currentLanguageStrings.ONBOARDING;
 export const QUESTIONS_STRINGS = currentLanguageStrings.QUESTIONS;
 export const SCORE_STRINGS = currentLanguageStrings.SCORE;
+export const ERROR_EXCEPTION_STRINGS = currentLanguageStrings.ERROR_EXCEPTION;

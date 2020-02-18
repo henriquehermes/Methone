@@ -36,3 +36,10 @@ export const ImageBackground = styled.Image`
     bottom: 100px;
     right: -50px;
 `;
+
+export const ModalBody = styled.View`
+    background-color: ${props => props.theme.white};
+    padding: 30px 16px 20px 16px;
+    border-radius: 6px;
+    justify-content: center;
+`;
